@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 120TC Homework 1}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{2.1.2}
+First, we suppose that the statement in the problem is false. That is, we suppose that there is a continuous mapping $f: B^n \rightarrow \rr^n$ such that $f(-x) = -f(x)$ on the boundary and that for every $x \in B^n$, we have $f(x) \neq 0$. Then we may define $g: B^n \rightarrow S^{n-1}$ as follows: $g(x) = \frac{f(x)}{\Vert f(x) \Vert}$. This mapping is continuous and antipodal on the boundary of $B^n$. Thus it contradicts the statement $BU2b$ of the Borsuk Ulam Theorem. Accordingly, we have $BU2b \implies 2.1.2$. Next, we suppose that $BU2b$ is false. That is, we suppose there is some continuous mapping $f: B^n \rightarrow S^{n-1}$ that is antipodal on the boundary of $B^n$. Then, by definition, it has no zero. Thus $2.1.2$ is false so that $2.1.2 \implies BU2b$. This shows that $2.1.2 \Leftrightarrow BU2b$.
+\newpage
+\section*{2.1.11}
+\subsection*{Part A}
+An equivalent statement of the Borsuk Ulam theorem is as follows:  Any continuous mapping $f: T \rightarrow \rr^2$ must identify a pair of antipodal points; that is, $f(x) = f(-x)$ for some $x \in T$. This is false. Let us suppose that the torus $T$ is embedded in $\rr^3$. Let $f$ be projection onto the plane $\rr^2$. Then this map is clearly continuous but it does not identify a pair of antipodal points.
+\newpage
+\subsection*{Part B}
+Let $f: T \rightarrow \rr$ be a continuous map. Let us consider a circle $S$ on the torus $T$ such that every pair of points antipodal on $S$ is also antipodal on $T$. By the Borsuk Ulam theorem, there must exist some $x \in T$ such that $f(x) = f(-x)$.
+\newpage
+\section*{2.3.1}
+\subsection*{Part A}
+For ease of notation, I will refer to any simplex whose vertices are on $S^{n-1}$ and which contains $0$ as a nice simplex. First, I claim that any nice $1$ dimensional simplex in $B^2$ has an edge with length at least $\delta$. This is obvious because any nice $1$ dimensional simplex is necessarily an equator, and it must have length $2 > \sqrt{3/2}$. Next, I claim that any nice $2$ dimensional simplex in $B^2$ has an edge with length at least $\delta$. Let us suppose that the edges adjacent to some vertex $v$ have length less than $\delta$. We claim that the remaining edge has length at least $\delta$. Suppose this was not true. Then the two remaining vertices must be above the equator (if they were at or below the equator, then the remaining edge would have length at least $\delta$).  However, the $2$ dimensional simplex would no longer contain $0$. This contradiction informs us that any nice $2$ dimensional simplex in $B^2$ must have an edge with length at least $\delta$. Next, we claim that any nice $1$ dimensional simplex in $B^3$ has an edge with length at least $\delta$. This is obvious because any nice $1$ dimensional simplex is an equator, and it thus must have length $2 > \sqrt{8/3}$. Any nice $2$ dimensional simplex in $B^3$ must have an edge with length at least $\delta$. This can be seen by first moving the plane containing $3$ vertices of the regular tetrahedron to the equator. Then the distances between these points can only increase, and we can repeat the same argument that we did for $B^2$. Finally, we claim that any nice $3$ dimensional simplex must have an edge with length at least $\delta$. Suppose that there was some vertex $v$ such that all the edges adjacent to it had length less than $\delta$. Since this simplex is simply a perturbation of the regular $3$ simplex, all the other edges must have length greater than $\delta$. To be specific, if every edge containing $v$ has length less than $\delta$, then every point $S^2$ must be closer to $v$. However, we also know that the simplex contains $0$, which means that not all the points can be contained in the interior of some hemisphere. Thus they must move up on the sphere, which can only increase the distance between them. Decreasing the distance between any two pairs of points simply causes other points to move farther apart. Thus there must be an edge with length at least $\delta$. Similar reasoning applies in higher dimensions.
+\newpage
+\subsection*{Part B}
+As stated in the problem, the function $g: V(T) \rightarrow S^{n-1}$ is antipodal on the vertices. Then the affine extension $\Vert g \Vert: \hat{B}^n \rightarrow B^n$ is antipodal on $\partial{\hat{B}^n}$ and is continuous. By the Borsuk Ulam Theorem, we find that $\Vert g\Vert(x) = 0$ for some $x \in \hat{B}^n$. Let $\sigma$ denote the simplex that contains $x$. Then $\Vert g \Vert(\sigma)$ is a simplex that contains $0$. Furthermore, we know that all the vertices of $\Vert g \Vert(\sigma)$ are on the boundary $S^{n-1}$. By Part $A$, there must be two vertices $g(v)$ and $g(u)$ in $\Vert g \Vert(\sigma)$ such that $\Vert g(u) - g(v) \Vert \geq \delta(n)$.  By construction, we know that $u$ and $v$ are neighboring vertices.
+\newpage
+\subsection*{Part C}
+Let $\varepsilon > 0$ be given. Let us choose a triangulation $T$ of $B^n$ that is antipodally symmetric on $\partial{B}^n$ such that all the simplices in $T$ have diameter less than $\varepsilon$. By assumption, we know that $f$ is antipodal on the boundary vertices of $V(T)$. By Part $B$, we know that there must exist two neighboring vertices $u,v \in V(T)$ such that $\Vert f(u) - f(v) \Vert \geq \delta(n)$. By our construction of $T$, we have $\Vert u - v \Vert < \varepsilon$.
+\end{document} 

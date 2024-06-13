@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 120TC Homework 3}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Exercise 4.1.1}
+\subsection*{Part A}
+We define the map $f: \rr^2 \rightarrow X\setminus B^2$ as follows: $f(0) = [0]$ and $f(x) = f(re^{i\theta}) = [(r+1)e^{i\theta}]$ if $x \neq 0$. It is evident that $f$ is bijective. Now, we must show that $f$ and $f^{-1}$ are continuous. First, we claim that $f$ is continuous. Let $U \subseteq X \setminus B^2$ be open. If $U$ does not contain $[0]$, then it is clear that $f^{-1}(U)$ is open. If $[0] \in U$, then we know that $B^2 \subseteq q^{-1}(U)$, where $q: X \rightarrow X\setminus B^2$ is the projection map. Since $U$ is open, $q^{-1}(U)$ is open. Because $B^2$ is closed, we must have  $B^2 \subsetneq q^{-1}(U)$. By compactness, we know that there must be some open ball $D$ of radius strictly greater than $1$ such that $D \subseteq q^{-1}(U)$. Now, we have $U = q(D) \cup U \setminus \{[0]\}$. We note that 
+\[
+f^{-1}(U) = f^{-1}(q(D)) \cup f^{-1}(U \setminus \{[0]\})
+\] which is clearly open since $f^{-1}(q(D))$ and $f^{-1}(U \setminus \{[0]\})$ are open. Next, we claim that $f^{-1}$ is continuous. We note that
+\[
+f^{-1} \circ q(re^{i\theta}) = (\max\{0,r-1\})e^{i\theta}
+\] which is continuous. Thus, if $U \subseteq \rr^2$ is an open set, we have
+\[
+(f^{-1} \circ q)^{-1}(U) = q^{-1}\circ f(U)
+\] is open so that $f(U)$ is open. This shows that $f^{-1}$ is continuous so that $f$ is a homeomorphism.
+\newpage
+\subsection*{Part B}
+Let us suppose that $f: Y \rightarrow X \setminus U$ is a homeomorphism, where $Y$ is any metric space. Since $f$ is bijective, there must exist $y_1$ and $y_2$ in $Y$ such that $f(y_1) = [(0,0)]$ and $f(y_2) = [(1,0)]$. Because $Y$ is a metric space, we have $d(y_1,y_2) > 0$ and let $\delta = (1/2)d(y_1,y_2)$. We consider the open ball $B(y_2; \delta)$. Since this ball is open in $Y$ and $f$ is a homeomorphism, we know that $f(B(y_2;\delta))$ is open so that $q^{-1}(f(B(y_2;\delta)))$ is open. Since $(1,0) \in q^{-1}(f(B(y_2;\delta)))$, there must exist some $\varepsilon < 1$ such that $(\varepsilon, 0) \in q^{-1}(f(B(y_2;\delta)))$ so that $[(0,0)] \in f(B(y_2;\delta))$. That is, there must exist some $y_3 \in B(y_2;\delta)$ such that $f(y_3) = [(0,0)]$. Since $y_3 \neq y_1$, we deduce that $f$ is not injective, which is a contradiction. 
+\end{document} 

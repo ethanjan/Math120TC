@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ \usepackage{tikz-cd}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 120TC Homework 6}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Problem 1}
+First, we recall how we proved the fact that the sphere $S^n$ is $n-1$ connected. To prove this, we first assumed that $f: S^i \rightarrow S^n$ was a continuous map and that it was not surjective. In particular, we supposed that there was some point $x \in S^n$ such that $x \not \in f(S^i)$. Then, we constructed a continuous extension $\overline{f}: B^{i+1} \rightarrow S^n$ as follows: for any $v \in B^{i+1}$, we let $v = ru$, where $r \in [0,1]$ and $u \in S^i$. Then, we set
+\[
+\overline{f}(v) = \frac{rf(u) + (1-r)(-x)}{\Vert rf(u) + (1-r)(-x)\Vert}
+\] Notice that the denominator is never zero because we assumed that $f(u) \neq x$ for all $u \in S^i$. If $f$ happened to be a space filling curve, then we constructed a new function $g$ by linear interpolation of the images of $f$ on the vertices of a triangulation of $S^i$, and we showed that $g$ is not surjective.
+\\
+Now, we will use a similar proof method to show that $S^n * F$ is $n$ connected for any $n$ and any finite set $F$. Let $f: S^i \rightarrow S^n * F$ be a continuous map for some $i \leq n$. We claim that $f$ can be extended to a continuous map $\overline{f}: B^{i+1} \rightarrow S^n * F$. To do this, we first suppose that $f(S^i)$ does not contain any point of $F$. In this case, we may continuously deform the image $f(S^i)$ onto a single cone (this is only possible because we are assuming that $f(S^i)$ does not contain any point of $F$). We denote the vertex of this cone by $x$. We now extend $f$ to $B^{i+1}$ as follows: Let $v \in B^{i+1}$ be such that $v = ru$ for some $r \in [0,1]$ and $u \in S^i$. We draw the line from $f(u)$ to $x$, and we let $\overline{f}(v)$ be defined as the point $rf(u) + (1-r)x$ (notice that the origin is sent to the point $x$). Thus, we have demonstrated that $f: S^i \rightarrow S^{n} * F$ can be extended to $\overline{f} : B^{i+1} \rightarrow S^{n} * F$ if the image $f(S^i)$ does not contain any points of $F$. Next, let us suppose that the image $f(S^i)$ does contain a point of $F$. Then, we triangulate the sphere $S^i$ as in the proof of the $n-1$ connectedness of $S^n$. We construct $g$ by interpolating the values of $f$ at the vertices of the triangulation. We can show that $g$ is not surjective. Since $F$ is a finite point set, we can perturb $g$ if necessary to ensure that $g(S^i)$ does not contain any point of $F$.
+\newpage
+\section*{Problem 2}
+Let $D_3$ denote a set with $3$ distinct points. First, we claim that $(D_3)^{*(n+1)}$ is a $n$ dimensional simplicial complex. To do this, we note that the maximum size of any simplex in $(D_3)^{*(n+1)}$ is $n+1$ since we are taking the join of a discrete set with itself $n+1$ times. By the definition of the dimension of a simplicial complex (which is defined to be the dimension of its maximal simplices), we deduce that $(D_3)^{*(n+1)}$ is an $n$ complex. Now, we recall Sakaria's coloring/embedding theorem: Let $K$ be a simplicial complex on $n$ vertices, and let $\mathcal{F} = \mathcal{F}(K)$ be the system of minimal nonfaces of $K$. If $d \leq n - \chi(\text{KG}(\mathcal{F})) - 2$, then for any continuous mapping $f: \Vert K \Vert \rightarrow \rr^d$, the images of some two disjoint faces of $K$ must intersect. Note that $(D_3)^{*(n+1)}$ has $3n+3$ vertices. We wish to show that it cannot be embedded in $\rr^{2n}$. According to the above theorem, we need only show that
+\[
+2n \leq 3n + 3 - \chi(\text{KG}(\mathcal{F})) - 2
+\] or
+\[
+\chi(\text{KG}(\mathcal{F})) \leq n + 1
+\] Let us label the vertices of $(D_3)^{*(n+1)}$ as follows:
+\[
+\{1^\prime,2^\prime,3^\prime,1^{\prime\prime}, 2^{\prime\prime}, 3^{\prime\prime}, \ldots, 1^{(n)}, 2^{(n)}, 3^{(n)}, 1^{(n+1)}, 2^{(n+1)}, 3^{(n+1)}\}
+\] The minimal nonfaces are $\{i^{(k)},j^{(k)}\}$, where $i,j \in \{1,2,3\}$ and $k$ ranges from $1$ to $n+1$. Thus, these pairs are the vertices of the Kneser graph. Notice that there is an edge between the vertices $\{i^{(k)},j^{(k)}\}$ and $\{i^{(l)},j^{(l)}\}$ if and only if $k \neq l$. We define the coloring $c: \text{KG}(\mathcal{F}) \rightarrow [n+1]$ as follows:
+\[
+c(\{i^{(k)},j^{(k)}\}) = k
+\] It is not too difficult to see that this defines a proper coloring of the Kneser graph. Thus, we find that 
+\[
+\chi(\text{KG}(\mathcal{F})) \leq n + 1
+\] and that $(D_3)^{*(n+1)}$ cannot be embedded in $\rr^{2n}$. Notice that for the case $n=1$, we are saying that $(D_3)^{*2} = K_{3,3}$ cannot be embedded in $\rr^2$.
+\newpage
+\section*{Problem 3}
+We have the following commutative diagram.
+\[
+  \begin{tikzcd}
+    S^1 \arrow{r}{f} \arrow[swap]{d}{\varphi_1} & S^1 \arrow{d}{\psi_1} \\
+     S^1 \arrow{r}{f} & S^1
+  \end{tikzcd}
+\] Thus, we have $\psi_1 \circ f = f\circ \varphi_1$. In particular, we know that
+\[
+\psi_1(f(z)) = f(\varphi_1(z))
+\] or
+\[
+e^{2\pi i \ell /p} z^n = e^{2 \pi i kn/p} z^n
+\] This informs us that
+\[
+e^{2\pi i \ell /p} =  e^{2 \pi i kn/p}
+\] or 
+\[
+2\pi\ell/p = 2 \pi kn/p + 2\pi m
+\] for some integer $m$. Dividing by $2\pi$ gives us
+\[
+\frac{\ell}{p} = \frac{kn}{p} + m
+\] or 
+\[
+\ell = kn + pm
+\] Finally, we solve for $n$ to obtain
+\[
+n = \frac{\ell - pm}{k}
+\]
+\end{document} 
